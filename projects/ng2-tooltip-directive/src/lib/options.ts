@@ -23,7 +23,7 @@ export const defaultOptions = {
 	'scrollContext': window
 }
 
-export const backwardCompatibilityOptions = {
+export const backwardCompatibilityOptions:any = {
     'delay': 'showDelay',
     'show-delay': 'showDelay',
     'hide-delay': 'hideDelay',

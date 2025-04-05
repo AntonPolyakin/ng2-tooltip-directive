@@ -15,19 +15,19 @@ export class TooltipComponent {
 
     @Input() data: any;
 
-    @HostBinding('style.top') hostStyleTop: string;
-    @HostBinding('style.left') hostStyleLeft: string;
-    @HostBinding('style.z-index') hostStyleZIndex: number;
-    @HostBinding('style.transition') hostStyleTransition: string;
-    @HostBinding('style.width') hostStyleWidth: string;
-    @HostBinding('style.max-width') hostStyleMaxWidth: string;
-    @HostBinding('style.pointer-events') hostStylePointerEvents: string;
-    @HostBinding('class.tooltip-show') hostClassShow: boolean;
-    @HostBinding('class.tooltip-shadow') hostClassShadow: boolean;
-    @HostBinding('class.tooltip-light') hostClassLight: boolean;
+    @HostBinding('style.top') hostStyleTop!: string;
+    @HostBinding('style.left') hostStyleLeft!: string;
+    @HostBinding('style.z-index') hostStyleZIndex!: number;
+    @HostBinding('style.transition') hostStyleTransition!: string;
+    @HostBinding('style.width') hostStyleWidth!: string;
+    @HostBinding('style.max-width') hostStyleMaxWidth!: string;
+    @HostBinding('style.pointer-events') hostStylePointerEvents!: string;
+    @HostBinding('class.tooltip-show') hostClassShow!: boolean;
+    @HostBinding('class.tooltip-shadow') hostClassShadow!: boolean;
+    @HostBinding('class.tooltip-light') hostClassLight!: boolean;
 
     @HostListener('transitionend', ['$event'])
-    transitionEnd(event) {
+    transitionEnd(event:any) {
         if (this.show) {
             this.events.emit({
                 type: 'shown'
@@ -202,7 +202,7 @@ export class TooltipComponent {
 
     setCustomClass(){
         if (this.options['tooltipClass']) {
-            this.options['tooltipClass'].split(' ').forEach(className => {
+            this.options['tooltipClass'].split(' ').forEach((className:any) => {
                 this.renderer.addClass(this.elementRef.nativeElement, className);
             });
         }
@@ -221,7 +221,7 @@ export class TooltipComponent {
 
         this.hostClassShadow = this.options['shadow'];
         this.hostClassLight = this.isThemeLight;
-        this.hostStyleMaxWidth = this.options['maxWidth'] + "px";
-        this.hostStyleWidth = this.options['width'] ? this.options['width'] + "px" : '';
+        this.hostStyleMaxWidth = this.options['maxWidth'];
+        this.hostStyleWidth = this.options['width'] ? this.options['width'] : '';
     }
 }
