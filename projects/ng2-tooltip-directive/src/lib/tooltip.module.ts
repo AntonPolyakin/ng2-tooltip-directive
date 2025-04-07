@@ -16,9 +16,9 @@ import { TooltipOptionsService } from './options.service';
     exports: [
         TooltipDirective
     ],
-    entryComponents: [
-        TooltipComponent
-    ]
+    // entryComponents: [
+    //     TooltipComponent
+    // ]
 })
 export class TooltipModule {
 
